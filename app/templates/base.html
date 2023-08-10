@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta property="og:title" content="Personal Portfolio"/>
+    <meta property="og:description" content="My Personal Portfolio"/>
+    <meta property="og:url" content="{{ url }}"/>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com/css?family=Montserrat:100"/>
+    <link rel="stylesheet" href="static/main.css"/>
+    <link
+            rel="stylesheet"
+            href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+            integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+            crossorigin=""
+    />
+    <script
+            src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+            crossorigin=""
+    ></script>
+
+    <link
+            href="https://fonts.googleapis.com/css?family=Montserrat:300"
+            rel="stylesheet"
+    />
+
+    <link lang="sass" rel="stylesheet" href="./static/styles/main.css"/>
+    <link rel="icon" href="./static/img/favicon.ico" type="image/x-icon"/>
+    <title>{{ title }}</title>
+</head>
+<body>
+<header class="nav-bar">
+    <div class="nav-content">
+        <a href="/">
+            <div class="nav-logo">
+                <img src="./static/img/logo.svg"/>
+            </div>
+        </a>
+        <ul class="nav-menu">
+            <li><a href="#about">About me</a></li>
+            <li><a href="#education">Education</a>
+            <li><a href="#work">Work experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="/timeline">Timeline</a></li>
+            <li><a href="#places">Places Visited</a></li>
+            <li><a href="#contact" style="margin:25px;">Contacts</a></li>
+        </ul>
+    </div>
+</header>
+
+{% block content %}{% endblock %}
+
+</body>
+</html>

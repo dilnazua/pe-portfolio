@@ -1,102 +1,119 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta property="og:title" content="Personal Portfolio" />
-    <meta property="og:description" content="My Personal Portfolio" />
-    <meta property="og:url" content="{{ url }}" />
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <!--Our CSS-->
-    <link rel="stylesheet" href="static/style.css" />
-    <!--LeafletJS files-->
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-      crossorigin=""
-    />
-    <script
-      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-      crossorigin=""
-    ></script>
-
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-      rel="stylesheet"
-    />
-
-    <link lang="sass" rel="stylesheet" href="./static/styles/main.css" />
-    <link rel="icon" href="./static/img/favicon.ico" type="image/x-icon" />
-    <title>{{ title }}</title>
-  </head>
-
-  <body>
-    <header class="nav-bar">
-        <div class="nav-content">
-            <a href="/">
-                <div class="nav-logo">
-                    <img src="./static/img/logo.svg" />
-                </div>
-            </a>
-            <ul class="nav-menu">
-                <li><a href="/dilnaz">Dilnaz</a></li>
-                <li><a href="/hobbies">Our Hobbies</a></li>
-            </ul>
-        </div>
-    </header>
+{% extends "base.html" %}
+{% block content %}
 
     <div class="profile">
-      <div id="profile-picture" class="profile-picture">
-        <img src="./static/img/{{ photo }}.jpg" />
-      </div>
-      <h1>{{ title }}</h1>
+        <div id="profile-picture" class="profile-picture">
+            <img src="./static/img/{{ photo }}.jpg"/>
+        </div>
+        <h1>{{ title }}</h1>
     </div>
 
-    <div class="about">
-      <h1>About Me</h1>
-      <h3>
-        {% for para in about_text %}
-        <p>{{para}}</p>
-        {% endfor %}
-      </h3>
+    <div class="about" style="margin-bottom: 70px;" id="about">
+        <h1>About Me</h1>
+        <h3>
+            {% for para in about_text %}
+                <p>{{ para }}</p>
+            {% endfor %}
+        </h3>
     </div>
 
-    <div class="about">
-      <h1>Education</h1>
-      <h3>
-        {% for para in education_text %}
-        <p>{{para}}</p>
-        {% endfor %}
-      </h3>
+    <div class="about" id="education">
+        <h1>Education</h1>
+        <h3>
+            {% for para in education_text %}
+                <p>{{ para }}</p>
+            {% endfor %}
+        </h3>
     </div>
 
-    <div class="about">
-      <h1>Work Experiences</h1>
-      <h3>
-        {% for para in work_text %}
-        <p>{{para}}</p>
-        {% endfor %}
-      </h3>
+    <div class="about" id="work">
+        <h1>Work Experiences</h1>
     </div>
 
-    <div class="about">
-      <h1>Places Visited</h1>
+    <section class="work-experience">
+        <div class="company-logo">
+            <img src="static/img/mlh-logo-color.png" alt="Meta & Major League Hacking">
+        </div>
+        <div class="experience-details">
+            <h2>Meta & Major League Hacking</h2>
+            <p class="job-title">Site Reliability Engineering Fellow</p>
+            <p class="job-description">{{ mlh_info }}</p>
+        </div>
+    </section>
+
+    <section class="work-experience">
+        <div class="company-logo">
+            <img src="static/img/gensler.png" alt="Gensler">
+        </div>
+        <div class="experience-details">
+            <h2>Gensler</h2>
+            <p class="job-title">Product Designer</p>
+            <p class="job-description">{{ gensler_info }}</p>
+        </div>
+    </section>
+
+    <section class="work-experience">
+        <div class="company-logo">
+            <img src="static/img/minerva.jpeg" alt="Minerva University">
+        </div>
+        <div class="experience-details">
+            <h2>Minerva University</h2>
+            <p class="job-title">Programming Peer Tutor</p>
+            <p class="job-description">{{ minerva_info }}</p>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <div class="projects" id="projects">
+        <h1>Projects</h1>
+        <div class="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-slide">
+                    <img src="static/img/pulsebud.png" alt="PulseBud">
+                    <p class="project-title"><a href="https://devpost.com/software/pulsebud">PulseBud</a></p>
+                    <p class="project-description">A real-time seizure prediction system</p>
+                </div>
+                <div class="carousel-slide">
+                    <img src="static/img/aziz.png" alt="Aziz">
+                    <p class="project-title"><a href="https://devpost.com/software/aziz">Aziz</a></p>
+                    <p class="project-description">A device to aid rescue teams in search for disaster victims</p>
+                </div>
+                <div class="carousel-slide">
+                    <img src="static/img/astro.png" alt="AstroTravel">
+                    <p class="project-title"><a>AstroTravel</a></p>
+                    <p class="project-description">An interactive application predicting planetary positions via AR</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="about" id="places">
+        <h1>Places Visited</h1>
     </div>
 
     <div id="map"></div>
 
     <script>
-      var map = L.map('map').setView([{{lat}}, {{lon}}], 2);
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors'}).addTo(map);
+        var map = L.map('map', {
+            center: [{{lat}}, {{lon}}],
+            zoom: 2,
+            minZoom: 2,
+        });
 
-      {{markers|safe}}
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        {{markers|safe}}
     </script>
-  </body>
-</html>
+    <footer class="contact" id="contact">
+        <h1>Contact Information</h1>
+        <p>Email: dilnazua@gmail.com</p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/dilnaz-uasheva">Dilnaz Uasheva</a></p>
+        <p>San Francisco, California</p>
+    </footer>
+
+    </body>
+    </html>
+{% endblock %}

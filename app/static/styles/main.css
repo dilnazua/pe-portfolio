@@ -6,7 +6,7 @@ h4,
 h5,
 h6,
 button {
-  font-family: "Roboto", serif;
+  font-family: "Montserrat", serif;
 }
 
 body {
@@ -14,13 +14,13 @@ body {
   background-size: cover;
   width: auto;
   overflow-x: hidden;
-  font-family: "Roboto", serif;
+  font-family: "Montserrat", serif;
   margin: 0px;
 }
 
 #map {
-  width: 80%;
-  height: 800px;
+  width: 70%;
+  height: 600px;
   margin: auto;
 }
 
@@ -28,7 +28,7 @@ body {
   width: 100%;
   display: inline-block;
   background-color: #1c539f;
-  font-family: "Roboto", serif;
+  font-family: "Montserrat", serif;
   font-weight: 700 !important;
   padding-top: 10px;
 }
@@ -37,6 +37,7 @@ body {
   display: inline-flex;
   height: 60%;
   width: 350px;
+
 }
 
 .nav-content .nav-logo {
@@ -60,6 +61,7 @@ body {
   text-align: right;
   padding-top: 0px;
   padding-right: 0px;
+
 }
 
 .nav-bar {
@@ -77,6 +79,15 @@ body {
 .nav-logo img {
     height: 40px;
     width: auto;
+    margin-left: 20px;
+}
+
+.nav-menu a:hover {
+    color: #F7B92A;
+    text-decoration-line: none; /* Remove default underline */
+    border-bottom: 2px solid #F7B92A;
+    padding-bottom: 3px;
+    transition: border-bottom 0.3s ease;
 }
 
 .nav-menu {
@@ -85,16 +96,19 @@ body {
     list-style: none;
     margin: 0;
     padding: 0;
+
 }
 
 .nav-menu li {
     font-size: 18px;
+
 }
 
 .nav-menu a {
     color: #fff;
     text-decoration: none;
     transition: color 0.3s ease;
+
 }
 
 .nav-menu a:hover {
@@ -135,14 +149,16 @@ body {
 .about {
   text-align: left;
   height: 100%;
-  width: 50%;
+  width: 60%;
   margin: auto;
-  font-size: 20px;
+  font-size: 16px;
+  font-family: "Montserrat", serif;
 }
 
 .about h3 {
-  font-family: "Roboto", serif;
+  font-family: "Montserrat", serif;
   font-weight: normal;
+  font-family: "Montserrat", serif;
 }
 
 .banner {
@@ -190,3 +206,118 @@ body {
   height: auto;
   margin-bottom: 10px;
 }
+
+
+.work-experience {
+    display: flex;
+    margin: 2rem;
+    width: 60%;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-bottom: 45px;
+
+}
+
+.company-logo img {
+    max-width: 100px;
+    height: auto;
+}
+
+.experience-details {
+    margin-left: 1rem;
+}
+
+.projects {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.carousel {
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel-inner {
+    display: flex;
+    animation: slide 12s infinite alternate;
+}
+
+.carousel-slide {
+    flex: 0 0 60%;
+}
+
+.carousel img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    margin: 0 auto;
+}
+
+@keyframes slide {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+.contact {
+    background-color: #f7f7f7;
+    padding: 2rem;
+    text-align: center;
+}
+
+.contact h1 {
+    margin-bottom: 1rem;
+}
+
+.contact p {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+}
+
+.work-experience {
+    display: flex;
+    align-items: center;
+    margin: 2rem;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin-left: 285px;
+    margin-right: 150px;
+    margin-bottom: 45px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.company-logo img {
+    max-width: 100px;
+    height: auto;
+}
+
+.experience-details {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.project-title {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.project-title a {
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.project-title a:hover {
+    border-bottom: 2px solid #000000;
+    padding-bottom: 3px;
+    transition: border-bottom 0.3s ease;
+}
+
+

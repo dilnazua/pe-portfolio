@@ -1,51 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
+{% block content %}
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta property="og:title" content="{{ title }}">
+        <meta property="og:description" content="My Hobbies">
+        <meta property="og:url" content="{{ url }}">
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta property="og:title" content="{{ title }}">
-    <meta property="og:description" content="My Hobbies">
-    <meta property="og:url" content="{{ url }}">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link
+                href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+                rel="stylesheet">
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
+        <link lang='sass' rel="stylesheet" href="./static/styles/main.css">
+        <link rel='icon' href='./static/img/favicon.ico' type='image/x-icon'/>
+        <title>{{ title }}</title>
+    </head>
 
-    <link lang='sass' rel="stylesheet" href="./static/styles/main.css">
-    <link rel='icon' href='./static/img/favicon.ico' type='image/x-icon' />
-    <title>{{ title }}</title>
-</head>
+    <body>
 
-<body>
-    <header class="nav-bar">
-        <div class="nav-content">
-            <a href="/">
-                <div class="nav-logo">
-                    <img src="./static/img/logo.svg" />
-                </div>
-            </a>
-            <ul class="nav-menu">
-                <li><a href="/dilnaz">Dilnaz</a></li>
-                <li><a href="/maya">Maya</a></li>
-                <li><a href="/joseph">Joseph</a></li>
-                <li><a href="/hobbies">Our Hobbies</a></li>
-            </ul>
-        </div>
-    </header>
 
     <div class="hobbies">
         <h1>{{ title }}</h1>
         <div class="card-container">
             {% for hobby in hobbies_list %}
-            <div class="card">
-                <img src="{{ hobby.image }}" alt="{{ hobby.title }}" />
-                <h2>{{ hobby.title }}</h2>
-            </div>
+                <div class="card">
+                    <img src="{{ hobby.image }}" alt="{{ hobby.title }}"/>
+                    <h2>{{ hobby.title }}</h2>
+                </div>
             {% endfor %}
         </div>
     </div>
-</body>
-</html>
+    </body>
+    </html>
+{% endblock %}
