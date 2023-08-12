@@ -56,6 +56,11 @@ jobs:
       - name: Deploy site
         run: ssh my-vps '~/redeploy-site.sh'
 
+      - name: Send Failure Message to Discord
+        if: failure()
+        run: |
+          curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=🚨 Deployment Failed"
+
       - name: Print Container Status
         run: |
           ssh my-vps 'cd ${{ secrets.PROJECT_ROOT }} && docker-compose -f docker-compose.prod.yml ps'
