@@ -21,7 +21,7 @@ about_text = [
 ]
 
 work_text = [
-    "We are great team!"
+    "We are a great team!"
 ]
 
 education_text = [
