@@ -11,6 +11,9 @@ jobs:
     name: "Deploy to VPS"
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+        
       - name: Run Tests
         uses: ./.github/workflows/test.yml
         
