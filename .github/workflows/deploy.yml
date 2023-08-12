@@ -30,4 +30,4 @@ jobs:
           SSH_IP: ${{ secrets.SSH_IP }}
 
       - name: Deploy site
-        run: ssh my-vm '~/redeploy-site.sh'
+        run: ssh ~/redeploy-site.sh
