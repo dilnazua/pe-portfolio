@@ -68,5 +68,3 @@ jobs:
       - name: Deployment Successful Message
         run: |
           curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=🚀 Deployment Successful"
-
-        
