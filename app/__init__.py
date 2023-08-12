@@ -12,12 +12,14 @@ from app.text import (
     about_text_dilnaz,
     work_text,
     education_text,
-    education_text_dilnaz
+    education_text_dilnaz,
+    gensler_info,
+    minerva_info,
+    mlh_info
 )
 
 load_dotenv("./example.env")
 app = Flask(__name__)
-
 
 if os.getenv("TESTING") == "true":
     print("Running in test mode")
@@ -100,6 +102,9 @@ def index():
         about_text=about_text_dilnaz,
         work_text=work_text_dilnaz,
         education_text=education_text_dilnaz,
+        gensler_info=gensler_info[0],
+        minerva_info=minerva_info[0],
+        mlh_info=mlh_info[0]
     )
 
 

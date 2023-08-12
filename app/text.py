@@ -45,9 +45,22 @@ work_text_dilnaz = [
 ]
 
 about_text_dilnaz = [
-    "Rising Sophomore at Minerva university. Result-oriented software developer with an experience in mobile game dev on Unity, Python Industrial programming through Yandex Lyceum courses, and electrical engineering through personal projects and competitions. I seek to work as a software engineer to further my knowledge, implement innovative solutions and manage complex tasks."
+    "As a rising sophomore at Minerva university 👋🏻, I am a result-oriented software developer with a diverse skill set. my experience ranges from mobile game development using unity to Python Industrial Programming acquired through Yandex Lyceum courses. Additionally, I have a background in electrical engineering through personal projects and competitive engagements (I love hackathons).",
+    "I am driven to excel as a software and production engineer, leveraging my existing expertise to continuously enhance my knowledge and skills. My passion lies in crafting innovative solutions and effectively managing complex tasks. I am eager to contribute to impactful projects, collaborating with a dynamic team to push boundaries and drive technological advancements."
 ]
 
 education_text_dilnaz = [
     "Computer Science and Artificial Intelligence at Minerva University"
+]
+
+gensler_info = [
+    "Contributed to a design thinking project with a team of 6 international students, resulting in the proposal of an accessible indoor wayfinding web app with mixed-reality for navigation of San Francisco Airport (Gensler's major client). Processed feedback regularly from Gensler with Figma prototypes Completed as Community Civic Project (CCP) in compliance with Minerva University's Academic Curriculum"
+]
+
+minerva_info = [
+    "Mentored 30+ students’ in statistical Python through weekly structured study sessions. Facilitated office hours for first-year students to assist with data visualization, simulations, and data analysis using Python. Improved programming skills of 73.61% of students based on an end-of-semester survey. Analyzed quantitative and qualitative data to suggest improvements in attendance, participation, and content gained through session metrics and surveys."
+]
+
+mlh_info = [
+    "Automated routine tasks and optimized workflows by creating Bash scripts, enhancing development efficiency and minimizing human error in deployment and maintenance processes. Utilized Docker for containerization, orchestrating seamless deployment and scaling of the web application while ensuring consistent environments across different platforms. Developed a web application using Flask, employing HTML and CSS to craft an intuitive and visually appealing user interface that enhances user experience."
 ]
