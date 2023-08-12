@@ -36,3 +36,8 @@ jobs:
         run: |
           ssh my-vps 'cd ${{ secrets.PROJECT_ROOT }} && docker-compose -f docker-compose.prod.yml ps'
 
+      - name: Deployment Successful Message
+        run: |
+          curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=🚀 Deployment Successful"
+
+        
