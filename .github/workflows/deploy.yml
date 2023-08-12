@@ -11,6 +11,9 @@ jobs:
     name: "Deploy to VPS"
     runs-on: ubuntu-latest
     steps:
+      - name: Run Tests
+        uses: ./.github/workflows/test.yml
+        
       - name: Configure SSH
         run: |
           mkdir -p ~/.ssh/
