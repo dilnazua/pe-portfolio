@@ -25,6 +25,7 @@ jobs:
           END
         env:
           SSH_USER: ${{ secrets.SSH_USER }}
+          
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           SSH_IP: ${{ secrets.SSH_IP }}
 
