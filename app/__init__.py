@@ -18,9 +18,11 @@ from app.text import (
     mlh_info
 )
 
+# Load environment variables from .env file
 load_dotenv("./example.env")
 app = Flask(__name__)
 
+# Check if running in testing mode
 if os.getenv("TESTING") == "true":
     print("Running in test mode")
     mydb = SqliteDatabase("file:memory?mode=memory&cache=shared", uri=True)
@@ -34,6 +36,7 @@ else:
     )
 
 
+# Define a Peewee model for Timeline Posts
 class TimelinePost(Model):
     name = CharField()
     email = CharField()
@@ -43,16 +46,16 @@ class TimelinePost(Model):
     class Meta:
         database = mydb
 
-
+# Connect to the database and create tables if necessary
 mydb.connect()
 mydb.create_tables([TimelinePost])
 
-
+# Function to map coordinates to markers for the map
 def mapping(coords):
     markers = ""
 
     for id, (lat, lon) in enumerate(coords):
-        # Create the marker and its pop-up for each shop
+        # Create markers for each coordinate
         idd = f"a{id}"
         markers += "var {idd} = L.marker([{latitude}, {longitude}]);\
                             {idd}.addTo(map);".format(
@@ -62,7 +65,7 @@ def mapping(coords):
         )
     return coords, markers
 
-
+# Route for the homepage
 @app.route("/")
 def index():
     coords = [
@@ -120,7 +123,7 @@ def hobbies():
 
     return render_template("hobbies.html", title=title, hobbies_list=hobbies_list)
 
-
+# Route to create a new timeline post (POST request)
 @app.route("/api/timeline_post", methods=["POST"])
 def post_time_line_post():
     name = request.form.get("name", None)
@@ -136,7 +139,7 @@ def post_time_line_post():
 
     return model_to_dict(timeline_post)
 
-
+# Route to get all timeline posts (GET request)
 @app.route("/api/timeline_post", methods=["GET"])
 def get_time_line_post():
     return {
@@ -146,30 +149,36 @@ def get_time_line_post():
         ]
     }
 
-
+# Route to delete the last timeline post (DELETE request)
 @app.route("/api/timeline_post", methods=["DELETE"])
 def delete_timeline_post():
+    # Get the last timeline post by creation date
     timeline_post = (
         TimelinePost.select().order_by(TimelinePost.created_at.desc()).first()
     )
     if timeline_post:
+        # Delete the instance of the timeline post
         timeline_post.delete_instance()
         return jsonify({"message": "Last timeline post deleted"})
     else:
+        # If no timeline post is found, return a 404 error
         abort(404)
 
 
+# Route for the timeline page
 @app.route('/timeline', methods=["GET", "POST"])
 def timeline():
     if request.method == "POST":
+        # If the request method is POST, create a new timeline post
         name = request.form['name']
         email = request.form['email']
         content = request.form['content']
         timeline_post = TimelinePost.create(name=name, email=email, content=content)
 
+    # Retrieve all timeline posts and order by creation date descending
     timeline_posts = TimelinePost.select().order_by(TimelinePost.created_at.desc())
     return render_template('timeline.html', title="Timeline", timeline_posts=timeline_posts)
 
-
+# Run the app if this script is executed directly
 if __name__ == "__main__":
     app.run()
