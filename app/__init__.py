@@ -165,7 +165,7 @@ def delete_timeline_post():
         abort(404)
 
 
-# Route for the timeline page
+# Route for the timeline page with GET and POST requests
 @app.route('/timeline', methods=["GET", "POST"])
 def timeline():
     if request.method == "POST":
@@ -182,3 +182,4 @@ def timeline():
 # Run the app if this script is executed directly
 if __name__ == "__main__":
     app.run()
+    
