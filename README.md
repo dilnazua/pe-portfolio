@@ -1,6 +1,6 @@
 # Deployed Website
 
-https://portfolio-week1.duckdns.org/
+https://dilnaz-uasheva.duckdns.org/
 
 # Production Engineering - Week 1 - Portfolio Site
 
