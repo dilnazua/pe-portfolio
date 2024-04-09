@@ -64,3 +64,11 @@ minerva_info = [
 mlh_info = [
     "Automated routine tasks and optimized workflows by creating Bash scripts, enhancing development efficiency and minimizing human error in deployment and maintenance processes. Utilized Docker for containerization, orchestrating seamless deployment and scaling of the web application while ensuring consistent environments across different platforms. Developed a web application using Flask, employing HTML and CSS to craft an intuitive and visually appealing user interface that enhances user experience."
 ]
+
+google_info = [
+    " "
+]
+
+uber_info = [
+    "Chosen as a fellow for the Uber Career Prep Program with an acceptance rate of 2.3%."
+]
