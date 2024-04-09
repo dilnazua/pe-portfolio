@@ -15,7 +15,9 @@ from app.text import (
     education_text_dilnaz,
     gensler_info,
     minerva_info,
-    mlh_info
+    mlh_info,
+    google_info,
+    uber_info
 )
 
 # Load environment variables from .env file
@@ -116,7 +118,9 @@ def index():
         education_text=education_text_dilnaz,
         gensler_info=gensler_info[0],
         minerva_info=minerva_info[0],
-        mlh_info=mlh_info[0]
+        mlh_info=mlh_info[0],
+        google_info=google_info[0],
+        uber_info=uber_info[0]
     )
 
 
