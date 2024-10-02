@@ -1,0 +1,183 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="profile">
+        <div id="profile-picture" class="profile-picture">
+            <img src="./static/img/{{ photo }}.jpg"/>
+        </div>
+        <h1>{{ title }}</h1>
+    </div>
+
+    <div class="about" style="margin-bottom: 70px;" id="about">
+        <h1>About Me</h1>
+        <h3>
+            {% for para in about_text %}
+                <p>{{ para }}</p>
+            {% endfor %}
+        </h3>
+    </div>
+
+    <div class="about" id="education">
+        <h1>Education</h1>
+        <h3>
+            {% for para in education_text %}
+                <p>{{ para }}</p>
+            {% endfor %}
+        </h3>
+    </div>
+
+    <div class="about" id="work">
+        <h1>Work Experiences</h1>
+    </div>
+
+
+    <section class="work-experience">
+        <div class="company-logo">
+            <img src="static/img/uber.png" alt="Uber Software Engineering CP Program">
+        </div>
+        <div class="experience-details">
+            <h2>Uber Software Engineering CP Program</h2>
+            <p class="job-title">Software Engineering Fellow</p>
+            <p class="job-description">{{ uber_info }}</p>
+        </div>
+    </section>
+
+    <section class="work-experience">
+        <div class="company-logo">
+            <img src="static/img/google.png" alt="Google CS Research Mentorship Program">
+        </div>
+        <div class="experience-details">
+            <h2>Google CS Research Mentorship Program</h2>
+            <p class="job-title">Researcher & Mentee</p>
+            <p class="job-description">{{ google_info }}</p>
+        </div>
+    </section>
+
+    <section class="work-experience">
+        <div class="company-logo">
+            <img src="static/img/mlh-logo-color.png" alt="Meta & Major League Hacking">
+        </div>
+        <div class="experience-details">
+            <h2>Meta & Major League Hacking</h2>
+            <p class="job-title">Site Reliability Engineering Fellow</p>
+            <p class="job-description">{{ mlh_info }}</p>
+        </div>
+    </section>
+
+    <section class="work-experience">
+        <div class="company-logo">
+            <img src="static/img/gensler.png" alt="Gensler">
+        </div>
+        <div class="experience-details">
+            <h2>Gensler</h2>
+            <p class="job-title">Product Designer</p>
+            <p class="job-description">{{ gensler_info }}</p>
+        </div>
+    </section>
+
+    <section class="work-experience">
+        <div class="company-logo">
+            <img src="static/img/minerva.jpeg" alt="Minerva University">
+        </div>
+        <div class="experience-details">
+            <h2>Minerva University</h2>
+            <p class="job-title">Programming Peer Tutor</p>
+            <p class="job-description">{{ minerva_info }}</p>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <div class="projects" id="projects">
+        <h1>Projects</h1>
+        <div class="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-slide">
+                    <!-- PulseBud -->
+                    <a href="https://devpost.com/software/pulsebud">
+                        <img src="static/img/pulsebud.png" alt="PulseBud">
+                    </a>
+                    <p class="project-title"><a href="https://devpost.com/software/pulsebud">PulseBud</a></p>
+                    <p class="project-description">A real-time seizure prediction system</p>
+                </div>
+                <div class="carousel-slide">
+                    <!-- Aziz -->
+                    <a href="https://devpost.com/software/aziz">
+                        <img src="static/img/aziz.png" alt="Aziz">
+                    </a>
+                    <p class="project-title"><a href="https://devpost.com/software/aziz">Aziz</a></p>
+                    <p class="project-description">A device to aid rescue teams in search for disaster victims</p>
+                </div>
+                <div class="carousel-slide">
+                    <!-- AstroTravel -->
+                    <a href="https://github.com/dilnazua/AstroTravel">
+                        <img src="static/img/astro.png" alt="AstroTravel">
+                    </a>
+                    <p class="project-title"><a href="https://github.com/dilnazua/AstroTravel">AstroTravel</a></p>
+                    <p class="project-description">An interactive application predicting planetary positions via AR</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="about" id="work">
+        <h1>Minerva City Experiences</h1>
+    </div>
+
+
+    <section class="work-experience">
+        <div class="experience-details">
+            <h2>Trip from Berlin to Sachsenhausen Concentration Camp</h2>
+            <p class="job-description">{{ camp_info }}</p>
+        </div>
+    </section>
+
+    <div class="about" id="work">
+        <h1>My Favorite Minerva Assignments</h1>
+    </div>
+
+
+    <section class="work-experience">
+        <div class="experience-details">
+            <h2> Foot Traffic Modeling</h2>
+            <p class="job-description">{{ asg1_info }}</p>
+        </div>
+    </section>
+
+    <section class="work-experience">
+        <div class="experience-details">
+            <h2> How does flood exposure vulnerability caused by sea level rise and extreme storm frequency influence the rates of asthma respiratory illness in San Francisco </h2>
+            <p class="job-description">{{ asg2_info }}</p>
+        </div>
+    </section>
+
+    <div class="about" id="places">
+        <h1>Places Visited</h1>
+    </div>
+
+    <div id="map"></div>
+
+    <script>
+        var map = L.map('map', {
+            center: [{{lat}}, {{lon}}],
+            zoom: 2,
+            minZoom: 2,
+        });
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        {{markers|safe}}
+    </script>
+    <footer class="contact" id="contact">
+        <h1>Contact Information</h1>
+        <p>Email: dilnazua@gmail.com</p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/dilnaz-uasheva">Dilnaz Uasheva</a></p>
+        <p>GitHub: <a href="https://github.com/dilnazua">@dilnazua</a></p>
+        <p>San Francisco, California</p>
+    </footer>
+
+    </body>
+    </html>
+{% endblock %}
