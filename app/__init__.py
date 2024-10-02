@@ -192,6 +192,60 @@ def timeline():
     timeline_posts = TimelinePost.select().order_by(TimelinePost.created_at.desc())
     return render_template('timeline.html', title="Timeline", timeline_posts=timeline_posts)
 
+
+@app.route("/cportfolio")
+def cportfolio():
+    coords = [
+        (48.0196, 66.9237),
+        (61.5240, 105.3188),
+        (41.3775, 64.5853),
+        (38.9637, 35.2433),
+        (37.0902, -95.7129),
+        (51.1694, 71.4491),
+        (43.2220, 76.8512),
+        (47.1097, 51.9104),
+        (42.9026, 71.3656),
+        (51.2333, 51.3667),
+        (45.0158, 78.3673),
+        (43.6481, 51.1706),
+        (43.6028, 39.7342),
+        (53.1959, 50.1002),
+        (40.7128, -74.0060),
+        (36.9741, -122.0308),
+        (34.0522, -118.2437),
+        (41.2995, 69.2401),
+        (36.7664, 31.3870),
+        (36.8969, 30.7133),
+        (37.3875, -122.0575),
+        (37.7749, -122.4194),
+        (52.5200, 13.4049),
+        (50.0755, 14.4378),
+        (41.9028, 12.4964),
+        (40.8518, 14.2681),
+        (48.8566, 2.3522),
+        (43.7696, 11.2558),
+        (44.4949, 11.3426),
+        (37.5665, 126.9780)
+    ]
+
+    return render_template(
+        "index.html",
+        markers=mapping(coords)[1],
+        lat=(mapping(coords))[0][0][0],
+        lon=(mapping(coords))[0][0][1],
+        title="Dilnaz Uasheva - CPortfolio",
+        url=os.getenv("URL"),
+        photo="dilnaz",
+        about_text=about_text_dilnaz,
+        work_text=work_text_dilnaz,
+        education_text=education_text_dilnaz,
+        gensler_info=gensler_info[0],
+        minerva_info=minerva_info[0],
+        mlh_info=mlh_info[0],
+        google_info=google_info[0],
+        uber_info=uber_info[0]
+    )
+
 # Run the app if this script is executed directly
 if __name__ == "__main__":
     app.run()
