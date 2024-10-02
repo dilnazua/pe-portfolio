@@ -229,7 +229,7 @@ def cportfolio():
     ]
 
     return render_template(
-        "index.html",
+        "cp_portfolio.html",
         markers=mapping(coords)[1],
         lat=(mapping(coords))[0][0][0],
         lon=(mapping(coords))[0][0][1],
@@ -243,7 +243,10 @@ def cportfolio():
         minerva_info=minerva_info[0],
         mlh_info=mlh_info[0],
         google_info=google_info[0],
-        uber_info=uber_info[0]
+        uber_info=uber_info[0],
+        camp_info="hello", 
+        asg1_info="hello", 
+        asg2_info="hello".
     )
 
 # Run the app if this script is executed directly
