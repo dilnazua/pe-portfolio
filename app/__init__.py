@@ -246,7 +246,7 @@ def cportfolio():
         uber_info=uber_info[0],
         camp_info="hello", 
         asg1_info="hello", 
-        asg2_info="hello".
+        asg2_info="hello"
     )
 
 # Run the app if this script is executed directly
